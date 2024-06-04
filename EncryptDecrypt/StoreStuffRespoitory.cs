@@ -32,8 +32,11 @@ namespace EncryptDecrypt
         public async Task<KeyObject> GetSavedKey(string userName)
         {
             var sql = @"SELECT * FROM dbo.KeyObject";
+            var config = new ConfigurationManager();
+            var conn = config.GetSection("ConnectionStrings");
+            var store = conn.GetConnectionString("StoreStuff");
 
-            using (var client = new SqlConnection("Server=Eric-LT\\SQLEXPRESS;Database=KeyData;Integrated Security=true;"))
+            using (var client = new SqlConnection(store))
             {
                 client.Open();
                 var keys = await client.QueryAsync<KeyObject>(sql);

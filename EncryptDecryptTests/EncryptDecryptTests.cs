@@ -1,10 +1,13 @@
+using EncryptDecrypt;
+
 namespace EncryptDecryptTests
 {
     public class EncryptDecryptTests
     {
         [Fact]
-        public void Test1()
+        public async Task Test1()
         {
+            await Utils.EncryptPass();
 
         }
     }
