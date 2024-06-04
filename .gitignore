@@ -1,0 +1,9 @@
+.vs
+
+
+**/**/bin/*
+**/**/obj/*
+/bin/*
+/obj/*
+**/EncryptDecryptTests/obj/*
+**/EncryptDecryptTests/bin/*
