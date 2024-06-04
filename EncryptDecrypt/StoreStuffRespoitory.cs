@@ -49,7 +49,10 @@ namespace EncryptDecrypt
         {
             try
             {
-                using (var client = new SqlConnection("Server=Eric-LT\\SQLEXPRESS;Database=KeyData;Integrated Security=true;"))
+                var config = new ConfigurationManager();
+                var conn = config.GetSection("ConnectionStrings");
+                var store = conn.GetConnectionString("StoreStuff");
+                using (var client = new SqlConnection(store))
                 {
                     client.Open();
                     var parameters = new DynamicParameters();
